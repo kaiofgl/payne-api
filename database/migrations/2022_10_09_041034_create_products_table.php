@@ -18,7 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->string('image');
+            $table->string('thumbnail');
             $table->double('price');
+            $table->integer('stock')->default(1);
+            $table->boolean('status')->default(1);
             $table->softDeletes();
             $table->timestamps();
         });
