@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
+use Modules\ProductOption\Models\ProductOption;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,6 +20,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             ProductSeeder::class,
+            ProductOptionSeeder::class
         ]);
 
         Schema::enableForeignKeyConstraints();

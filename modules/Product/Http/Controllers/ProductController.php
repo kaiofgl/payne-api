@@ -3,7 +3,7 @@
 namespace Modules\Product\Http\Controllers;
 
 use App\Exceptions\ApiException;
-use Illuminate\Support\Facades\Log;
+
 use Modules\Product\Models\Product;
 use Modules\Product\Http\Requests\ProductValidate;
 use Modules\Support\Http\Controllers\BackendController;
@@ -14,7 +14,7 @@ class ProductController extends BackendController
 {
     public function all()
     {
-        $products = Product::all();
+        $products = Product::with('options')->get();
         return (new ProductCollection($products))->response()->setStatusCode(200);
     }
 

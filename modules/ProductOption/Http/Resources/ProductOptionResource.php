@@ -1,11 +1,10 @@
 <?php
 
-namespace Modules\Product\Http\Resources;
+namespace Modules\ProductOption\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Modules\ProductOption\Http\Resources\ProductOptionResource;
 
-class ProductResource extends JsonResource
+class ProductOptionResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,9 +17,8 @@ class ProductResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'description' => $this->description,
-            'options' => ProductOptionResource::collection($this->options),
-            'price' => $this->price
+            'thumbnail' => $this->thumbnail,
+            'price' => $this->price,
         ];
     }
 
