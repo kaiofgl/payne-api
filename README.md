@@ -3,6 +3,17 @@
 
 API desenvolvida em laravel para controle de backend do sistema de compras de GiftCard Payne 
 
+## Setup
+
+#### Composer  
+```
+composer install
+```
+
+Inicia um servidor em `http://127.0.0.1:8000/`  
+```
+php artisan serve
+```
 
 ## API
 
