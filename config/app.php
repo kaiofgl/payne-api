@@ -185,6 +185,8 @@ return [
         /*
          * Package Service Providers...
          */
+        Modules\Support\SupportServiceProvider::class,
+        Modules\Product\ProductServiceProvider::class,
 
         /*
          * Application Service Providers...
