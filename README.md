@@ -5,7 +5,7 @@ API desenvolvida em laravel para controle de backend do sistema de compras de Gi
 
 ## Setup
 
-#### Composer  
+Instala os pacotes composer no projeto  
 ```
 composer install
 ```
