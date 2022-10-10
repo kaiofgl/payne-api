@@ -11,10 +11,9 @@ class ProductValidate extends Request
     public function rules()
     {
         return [
-            'name' => '',
+            'title' => '',
             'description' => '',
-            'image' => 'required',
-            'price' => '',
+            'thumbnail' => '',
         ];
     }
 

@@ -15,9 +15,8 @@ return new class extends Migration
     {
         Schema::create('product_options', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            // $table->string('image');
-            $table->string('thumbnail')->nullable();
+            $table->string('title');
+            $table->string('image');
             $table->double('price');
             $table->foreignId('product_id')->constrained('products');
             $table->integer('stock')->default(1);

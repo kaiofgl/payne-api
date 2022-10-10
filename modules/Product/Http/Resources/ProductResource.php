@@ -17,10 +17,11 @@ class ProductResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
+            'title' => $this->title,
             'description' => $this->description,
+            'thumbnail' => $this->thumbnail,
+            'status' => $this->status,
             'options' => ProductOptionResource::collection($this->options),
-            'price' => $this->price
         ];
     }
 

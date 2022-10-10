@@ -16,9 +16,11 @@ class ProductOptionResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'thumbnail' => $this->thumbnail,
+            'title' => $this->title,
+            'image' => $this->image,
             'price' => $this->price,
+            'stock' => $this->stock,
+            'status' => $this->status
         ];
     }
 

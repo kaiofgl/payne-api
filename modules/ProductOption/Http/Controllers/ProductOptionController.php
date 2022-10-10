@@ -14,7 +14,6 @@ class ProductOptionController extends BackendController
     public function index($id)
     {
         $productOptions = ProductOption::where('product_id', '=', $id)->get();
-        // dd($productOptions);
         if (!isset($productOptions)) {
             throw new ApiException('Error', 404);
         }

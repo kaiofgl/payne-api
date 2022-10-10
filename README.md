@@ -1,34 +1,43 @@
 
 # PAYNE - API
 
-API desenvolvida em laravel para controle de backend do sistema de compras de GiftCard Payne 
-
+Payne Backend 
+[Payne - Frontend](https://github.com/Skuth/payne-front)
 ## Setup
 
-Instala os pacotes composer no projeto  
+Install all composer dependences  
 ```
 composer install
 ```
 
-Inicia um servidor em `http://127.0.0.1:8000/`  
+Add environment file
+```
+cp .env.example .env
+```
+Start docker environment 
+```
+docker-composer up -d
+```
+
+Start server at `http://127.0.0.1:8000/`  
 ```
 php artisan serve
 ```
 
 ## API
-
-#### Lista produtos
+### Products
+#### List Products
 
 ```http
   GET /api/v1/product
 ```
-#### Retorna produto
+#### Return Product
 
 ```http
   GET /api/v1/product/{id}
 ```
 
-#### Cadastro produto
+#### Store product
 
 ```http
   POST /api/v1/product
@@ -36,12 +45,12 @@ php artisan serve
 
 | Parametro | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `name` | `string` | Nome do Produto |
-| `description` | `text` | Descrição do Produto |
-| `image` | `string` | ***required*** URL da imagem WEB |
-| `price` | `double` | Valor do produto |
+| `title` | `string` | The product tile |
+| `description` | `text` | Product description |
+| `image` | `string` | ***required*** URL image |
+| `price` | `double` | Product price |
 
-#### Atualiza produto
+#### Update product
 
 ```http
   PUT /api/v1/product/{id}
@@ -49,12 +58,12 @@ php artisan serve
 
 | Parametro | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `name` | `string` | Nome do Produto |
-| `description` | `text` | Descrição do Produto |
-| `image` | `string` | ***required*** URL da imagem WEB |
-| `price` | `double` | Valor do produto |
+| `title` | `string` | The product title |
+| `description` | `text` | Product description |
+| `image` | `string` | ***required*** URL image |
+| `price` | `double` | Product price |
 
-#### Deleta produto
+#### Delete product
 
 ```http
   DELETE /api/v1/product/{id}

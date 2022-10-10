@@ -7,7 +7,7 @@ use Modules\ProductOption\Models\ProductOption;
 
 class Product extends Model
 {
-    protected $fillable = ['name', 'description', 'price', 'image'];
+    protected $fillable = ['title', 'description', 'price', 'thumbnail'];
 
     public function options()
     {
