@@ -6,6 +6,7 @@ use App\Exceptions\ApiException;
 
 use Modules\ProductOption\Models\ProductOption;
 use Modules\ProductOption\Http\Requests\ProductOptionValidate;
+use Modules\ProductOption\Http\Resources\ProductOptionCollection;
 use Modules\ProductOption\Http\Resources\ProductOptionResource;
 use Modules\Support\Http\Controllers\BackendController;
 
@@ -14,11 +15,12 @@ class ProductOptionController extends BackendController
     public function index($id)
     {
         $productOptions = ProductOption::where('product_id', '=', $id)->get();
-        if (!isset($productOptions)) {
+
+        if (!isset($productOptions) || count($productOptions) == 0) {
             throw new ApiException('Error', 404);
         }
 
-        return (ProductOptionResource::collection($productOptions))->response()->setStatusCode(201);
+        return (new ProductOptionCollection($productOptions))->response()->setStatusCode(201);
     }
 
 
