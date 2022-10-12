@@ -4,6 +4,7 @@ namespace Modules\Product\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Modules\ProductOption\Http\Resources\ProductOptionResource;
+use Modules\ProductTag\Http\Resources\ProductTagResource;
 
 class ProductResource extends JsonResource
 {
@@ -22,6 +23,7 @@ class ProductResource extends JsonResource
             'thumbnail' => $this->thumbnail,
             'status' => $this->status,
             'options' => ProductOptionResource::collection($this->options),
+            'badges' => ProductTagResource::collection($this->product_tags)
         ];
     }
 
