@@ -8,7 +8,7 @@ use Modules\ProductTag\Models\ProductTag;
 
 class Product extends Model
 {
-    protected $fillable = ['title', 'description', 'price', 'thumbnail'];
+    protected $fillable = ['title', 'description', 'thumbnail', 'status'];
 
     public function options()
     {
