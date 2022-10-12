@@ -4,6 +4,7 @@ namespace Modules\ProductOPtion\Http\Controllers;
 
 use App\Exceptions\ApiException;
 
+use Modules\Product\Models\Product;
 use Modules\ProductOption\Models\ProductOption;
 use Modules\ProductOption\Http\Requests\ProductOptionValidate;
 use Modules\ProductOption\Http\Resources\ProductOptionCollection;
@@ -27,7 +28,10 @@ class ProductOptionController extends BackendController
     public function store(ProductOptionValidate $request)
     {
         $params = $request->validated();
-        if (!isset($params)) {
+
+        $product = Product::find($params['product_id']);
+
+        if (!isset($params) || !isset($product)) {
             throw new ApiException('Error', 404);
         }
 
