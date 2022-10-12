@@ -14,8 +14,16 @@ class ProductController extends BackendController
 {
     public function all()
     {
-        $products = Product::has('options')
-            ->with('product_tags.tags')->get();
+        $products = Product::query()
+            ->with('product_tags.tags')
+            ->has('options')
+            ->search(request())
+            ->where('status', '=', '1')
+            ->paginate(16);
+
+        if ($products->items() == null) {
+            throw new ApiException('Error', 404);
+        }
 
         return (new ProductCollection($products))->response()->setStatusCode(200);
     }
