@@ -21,9 +21,9 @@ class ProductResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'thumbnail' => $this->thumbnail,
-            'status' => $this->status,
-            'options' => ProductOptionResource::collection($this->options),
-            'badges' => ProductTagResource::collection($this->product_tags)
+            'status' => $this->whenNotNull($this->status),
+            'options' => $this->when(count($this->options), ProductOptionResource::collection($this->options)),
+            'badges' => $this->when(count($this->product_tags), ProductTagResource::collection($this->product_tags))
         ];
     }
 
