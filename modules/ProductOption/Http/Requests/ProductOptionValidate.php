@@ -11,8 +11,8 @@ class ProductOptionValidate extends Request
     public function rules()
     {
         return [
-            'title' => '',
-            'image' => '',
+            'title' => 'required',
+            'image' => 'required',
             'product_id' => 'required|numeric',
             'price' => 'required',
             'stock' => '',
