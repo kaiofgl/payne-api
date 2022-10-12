@@ -14,15 +14,16 @@ class ProductController extends BackendController
 {
     public function all()
     {
-        $products = Product::with('options')->get();
+        $products = Product::has('options')
+            ->with('product_tags.tags')->get();
+
         return (new ProductCollection($products))->response()->setStatusCode(200);
     }
 
     public function find($id)
     {
 
-        $product = Product::find($id);
-
+        $product = Product::has('options')->where('id', '=', $id)->first();
         if (!isset($product)) {
             throw new ApiException('Error', 404);
         }
